@@ -8,77 +8,112 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Nagaraj S — XR Technical Lead" />
+  <meta property="og:description" content="14+ years in XR, leading teams of 12+, building AR/VR/MR solutions" />
+
   <style>
-    /* Mobile-first modern responsive styles */
-    :root{--bg:#f8fafc;--card:#ffffff;--muted:#9aa4b2;--accent:#06b6d4;--glass:rgba(255,255,255,0.04);--glass-2:rgba(255,255,255,0.02)}
+    :root{
+      --bg:#f8fafc;--card:#ffffff;--muted:#566174;--accent:#2563eb;--glass:rgba(255,255,255,0.8);--text:#0f172a
+    }
+    [data-theme='dark']{--bg:#071023;--card:rgba(7,16,36,0.9);--muted:#9aa4b2;--accent:#60a5fa;--glass:rgba(255,255,255,0.03);--text:#e6eef6}
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#0f172a;background:#f8fafc;}
-    .wrap{background:#f1f5f9;max-width:1100px;margin:28px auto;padding:20px}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:var(--bg);transition:background .25s ease}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
     header{display:flex;align-items:center;gap:16px}
-    .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-    h1{margin:0;font-size:20px}
-    .sub{color:var(--muted);font-size:13px}
+    .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#7c3aed,#9333ea);color:white;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:28px}
+    h1{margin:0;font-size:22px}
+    .sub{color:var(--muted);font-size:14px}
     nav{margin-left:auto;display:flex;gap:12px;align-items:center}
-    .btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);font-size:13px;text-decoration:none}
-    .primary{background:#2563eb;color:#021022;border:none}
+    .btn{background:transparent;border:1px solid rgba(0,0,0,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);font-size:14px;text-decoration:none}
+    .primary{background:linear-gradient(90deg,var(--accent),#7c3aed);color:white;border:none}
     .hero{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
-    .card{transition:all .3s ease;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .card{backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));border-radius:16px;transition:all .25s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.05)}
     .grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
-    .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .pill{background:#eef2f7;color:#1e293b;background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .pill{background:linear-gradient(135deg,#e0f2fe,#eff6ff);color:#1e3a8a;border:1px solid #bfdbfe;padding:6px 10px;border-radius:999px;font-size:14px;margin-right:8px}
     h2{margin:0 0 8px 0}
     .two-col{display:grid;grid-template-columns:1fr;gap:18px}
     .section-title{font-weight:700;margin-bottom:8px}
     ul{margin:8px 0 0 18px}
     .skills{display:flex;flex-wrap:wrap;gap:8px}
     .timeline{display:flex;flex-direction:column;gap:14px}
-    .timeline .item{padding:12px;border-left:3px solid rgba(255,255,255,0.04)}
+    .timeline .item{padding:12px;border-left:3px solid rgba(0,0,0,0.04)}
     footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
 
+    /* Responsive layout for larger screens */
     @media(min-width:880px){
       .hero{grid-template-columns:1fr 360px}
       .grid{grid-template-columns:1fr 360px}
       .two-col{grid-template-columns:1fr 1fr}
-      h1{font-size:24px}
+      h1{font-size:26px}
     }
 
-    /* small interaction styles */
-    a{color:inherit}
-    .contact a{color:var(--accent);text-decoration:none}
-    .download{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#021022;font-weight:700;text-decoration:none}
-    code{background:var(--glass-2);padding:4px 8px;border-radius:6px;color:var(--muted);font-size:13px}
-  </style>
+    /* Card hover */
+    .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(2,6,23,0.08)}
+
+    /* Animated reveal */
+    .reveal{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.22,.9,.2,1)}
+    .reveal.in{opacity:1;transform:none}
+
+    /* Dark mode toggle */
+    .toggle{display:inline-flex;align-items:center;gap:10px;background:var(--card);border-radius:999px;padding:6px;border:1px solid rgba(0,0,0,0.04)}
+    .toggle input{display:none}
+    .toggle .knob{width:36px;height:20px;background:#fff;border-radius:999px;position:relative}
+    .toggle .knob::after{content:'';position:absolute;left:3px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:#111;border-radius:50%;transition:left .2s}
+    [data-theme='dark'] .toggle .knob{background:#15203a}
+    [data-theme='dark'] .toggle .knob::after{left:19px;background:#fff}
+
+    /* Project gallery grid */
+    .gallery{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:880px){.gallery{grid-template-columns:repeat(3,1fr)}}
+
+    /* Contact form */
+    form label{display:block;margin-top:8px;color:var(--muted)}
+    form input,form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef6;margin-top:6px}
+    form button{margin-top:10px}
+  /* Hamburger menu styles */
+.menu-toggle{display:none;background:none;border:1px solid rgba(0,0,0,0.1);padding:8px 12px;border-radius:8px;font-size:18px;}
+@media(max-width:768px){
+  .menu-toggle{display:block;margin-left:auto;}
+  nav{display:none;width:100%;flex-direction:column;gap:8px;margin-top:10px;}
+  nav.show{display:flex;}
+  nav a{width:100%;text-align:center;}
+}
+</style>
 </head>
-<body>
+<body data-theme="light">
   <div class="wrap">
     <header>
       <div class="logo">NS</div>
       <div>
         <h1>Nagaraj S</h1>
         <div class="sub">Driving Enterprise XR Innovation • Technical Lead & Delivery Expert</div>
-        <div class="sub">Technical Lead — XR (AR/VR/MR) • Bangalore, Karnataka</div>
-        <div class="meta">
-          <span class="pill">14+ years experience</span>
-          <span class="pill">XR / Unity3D / Unreal</span>
+        <div style="margin-top:8px">
+          <span class="pill">14+ years</span>
+          <span class="pill">XR / Unity3D</span>
           <span class="pill">Team Lead (12+)</span>
         </div>
       </div>
 
-      <nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="navMenu">
         <a class="btn" href="#experience">Experience</a>
-        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="projects_gallery.html">Gallery</a>
         <a class="btn" href="#contact">Contact</a>
         <a class="btn primary" href="Nagaraj_TechnicalProjectLead.pdf" download>Download Resume</a>
+        <div style="margin-left:8px" class="toggle" title="Toggle dark / light">
+          <input id="themeToggle" type="checkbox" />
+          <div class="knob" aria-hidden="true"></div>
+        </div>
       </nav>
     </header>
 
     <main class="hero">
-      <section class="card">
+      <section class="card reveal">
         <h2>Summary</h2>
-        <p>Seasoned Technical Lead and XR Project Lead with <strong>14+ years</strong> of experience delivering enterprise AR/VR/MR solutions for global clients. Proven experience managing cross-functional teams of <strong>12+ members</strong>, driving end-to-end project execution, sprint planning, risk management, and stakeholder coordination. Strong technical background in Unity3D, Unreal Engine and .NET Core enabling efficient translation of business requirements into scalable XR solutions.</p>
+        <p>Seasoned Technical Lead and XR Project Lead with <strong>14+ years</strong> of experience delivering enterprise AR/VR/MR solutions for global clients. Proven experience managing cross-functional teams of <strong>12+ members</strong>, driving end-to-end project execution, sprint planning, risk management, and stakeholder coordination.</p>
 
         <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
-          <a class="download" href="Nagaraj_TechnicalProjectLead.pdf" download>Download PDF Resume</a>
+          <a class="primary btn" href="Nagaraj_TechnicalProjectLead.pdf" download>Download PDF Resume</a>
           <a class="btn" href="#contact">Hire / Contact</a>
         </div>
 
@@ -88,26 +123,35 @@
           <li><strong>Project & Delivery Management:</strong> Agile/Scrum, sprint planning, backlog management, release planning, and risk mitigation.</li>
           <li><strong>XR Development:</strong> Unreal Engine (UMG, Level Design, GI Lighting, Material Design, Pixel Streaming); Unity3D expertise.</li>
           <li><strong>Cross-Platform Development:</strong> Windows, WebGL, UWP, Android, iOS; CI/CD and code review practices.</li>
-          <li><strong>Innovation & Integration:</strong> SME in Unity3D, Unreal Engine, C#, .NET Core; plugin integrations (SteamVR, Final IK, Manus VR).</li>
-          <li><strong>Enterprise Deployment & MDM:</strong> Led Company Portal / MDM deployments including HoloLens 2.</li>
         </ul>
 
-        <h3 style="margin-top:18px">Skills</h3><div class="sub">Grouped for quick recruiter scan</div>
-        <div class="skills"><strong class="pill">XR / Engine</strong><span class="pill">Unity3D</span><span class="pill">Unreal Engine</span><span class="pill">OpenXR</span><br/><strong class="pill">Programming</strong><span class="pill">C#</span><span class="pill">C++</span><span class="pill">Python</span><br/><strong class="pill">Backend / DevOps</strong><span class="pill">.NET Core</span><span class="pill">Node.js</span><span class="pill">Jenkins</span><span class="pill">CI/CD</span><br/><strong class="pill">Platforms</strong>
+        <h3 style="margin-top:18px">Skills</h3>
+        <div class="sub">Grouped for quick recruiter scan</div>
+        <div class="skills">
+          <strong class="pill">XR / Engine</strong>
           <span class="pill">Unity3D</span>
           <span class="pill">Unreal Engine</span>
+          <span class="pill">OpenXR</span>
+          <br />
+          <strong class="pill">Programming</strong>
           <span class="pill">C#</span>
           <span class="pill">C++</span>
+          <span class="pill">Python</span>
+          <br />
+          <strong class="pill">Backend / DevOps</strong>
           <span class="pill">.NET Core</span>
           <span class="pill">Node.js</span>
-          <span class="pill">OpenXR</span>
-          <span class="pill">ARFoundation</span>
           <span class="pill">Jenkins</span>
+          <span class="pill">CI/CD</span>
+          <br />
+          <strong class="pill">Platforms</strong>
+          <span class="pill">Windows</span>
           <span class="pill">WebGL</span>
+          <span class="pill">Android / iOS</span>
         </div>
       </section>
 
-      <aside class="card">
+      <aside class="card reveal">
         <h3>Contact</h3>
         <p class="contact">Bangalore, Karnataka<br>
         <a href="tel:+919789010719">+91 9789010719</a><br>
@@ -123,7 +167,7 @@
       </aside>
     </main>
 
-    <section id="experience" class="grid" style="margin-top:18px">
+    <section id="experience" class="grid reveal" style="margin-top:18px">
       <div class="card">
         <h2 class="section-title">Professional Experience</h2>
         <div class="timeline">
@@ -158,23 +202,17 @@
         </div>
       </div>
 
-      <aside class="card">
+      <aside class="card reveal">
         <h3 class="section-title">Selected Projects & Impact</h3>
         <ul>
           <li>Enterprise HoloLens 2 deployment — MDM + Company Portal integration and user adoption for large enterprise factory floor app.</li>
           <li>WebXR & Pixel Streaming proof-of-concept — delivered remote visualization for high-fidelity 3D models across web clients.</li>
           <li>Cross-platform XR app — built core engine for reuse across Windows, Android, and WebGL reducing new-platform effort by 40%.</li>
         </ul>
-
-        <h3 style="margin-top:12px">Achievements</h3>
-        <ul>
-          <li>Improved team productivity by 20% and reduced project bottlenecks by 15% through process and tooling improvements.</li>
-          <li>Reduced API response times by 20% through backend optimizations and scalable RESTful architecture.</li>
-        </ul>
       </aside>
     </section>
 
-    <section id="projects" style="margin-top:18px" class="card">
+    <section id="projects" style="margin-top:18px" class="card reveal">
       <h2 class="section-title">Featured XR Projects</h2>
       <div class="two-col">
         <div class="card">
@@ -196,22 +234,36 @@
           <p><code>Tech:</code> Unity, .NET Core, REST APIs</p>
         </div>
       </div>
+      <div style="margin-top:12px;text-align:center">
+        <a class="btn" href="projects_gallery.html">Open Project Gallery</a>
+      </div>
     </section>
 
-    <section id="contact" style="margin-top:18px" class="card">
+    <section id="contact" style="margin-top:18px" class="card reveal">
       <h2 class="section-title">Contact</h2>
       <p>If you're hiring for XR project leadership, technical architecture, or senior engineering roles — let's talk.</p>
-      <p class="contact">Email: <a href="mailto:vasus1987@gmail.com">vasus1987@gmail.com</a> • Phone: <a href="tel:+919789010719">+91 9789010719</a></p>
+
+      <form id="contactForm" onsubmit="return sendMail();">
+        <label for="name">Name</label>
+        <input id="name" name="name" required placeholder="Your name" />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@company.com" />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Brief message / role details"></textarea>
+        <button type="submit" class="primary btn">Send Email</button>
+        <div id="formStatus" style="margin-top:8px;color:var(--muted)"></div>
+      </form>
+
       <p style="margin-top:12px;">Or connect on <a href="https://www.linkedin.com/in/nagaraj-sathya/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
     </section>
 
-    <footer>
-      <small>Built with care • Ready to deploy. Want me to publish this to GitHub Pages or Netlify and provide a public URL?</small>
+    <footer style="padding-top:20px;border-top:1px solid #e5e7eb;">
+      <small>Built with care • Ready to deploy. Want me to publish updates to your GitHub repo?</small>
     </footer>
   </div>
 
   <script>
-    // Optional: simple smooth scroll for nav links
+    // Smooth scroll for anchor links (already present)
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',function(e){
         e.preventDefault();
@@ -220,6 +272,53 @@
         if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
       })
     })
+
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('in');}
+      });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // Dark / Light toggle
+    const toggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    // initialize from localStorage
+    const saved = localStorage.getItem('theme')||'light';
+    document.body.setAttribute('data-theme', saved);
+    if(saved==='dark') toggle.checked = true;
+    toggle.addEventListener('change',()=>{
+      const t = toggle.checked ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+    });
+
+    // Contact form: opens mail client with prefilled content (reliable without backend)
+    function sendMail(){
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message) {document.getElementById('formStatus').textContent='Please complete all fields.';return false}
+      const subject = encodeURIComponent('Portfolio enquiry from '+name);
+      const body = encodeURIComponent('Name: '+name+'
+Email: '+email+'
+
+Message:
+'+message+'
+
+--
+Resume: '+location.origin+location.pathname.replace(/[^\/]*$/,'')+'Nagaraj_TechnicalProjectLead.pdf');
+      window.location.href = 'mailto:vasus1987@gmail.com?subject='+subject+'&body='+body;
+      document.getElementById('formStatus').textContent='Opening your email client...';
+      return false; // prevent actual submit
+    }
   </script>
+<script>
+function toggleMenu(){
+ const nav=document.getElementById('navMenu');
+ nav.classList.toggle('show');
+}
+</script>
 </body>
 </html>
